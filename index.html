@@ -270,7 +270,7 @@ function getItem(gid,iid){const g=groups.find(g=>g.id===gid);return g&&g.items.f
 /* ── STATE OPS ── */
 function addGroup(){const g={id:++gC,name:'',items:[]};groups.push(g);addItem(g.id);}
 function delGroup(gid){groups=groups.filter(g=>g.id!==gid);render();}
-function addItem(gid){const g=groups.find(g=>g.id===gid);if(!g)return;g.items.push({id:++iC,spek:'',vol:'',satuan:'Unit',hsatuan:0,refs:[{id:++rC,sumber:'',harga:0}]});render();}
+function addItem(gid){const g=groups.find(g=>g.id===gid);if(!g)return;g.items.push({id:++iC,spek:'',vol:'',satuan:'',hsatuan:0,refs:[{id:++rC,sumber:'',harga:0}]});render();}
 function delItem(gid,iid){const g=groups.find(g=>g.id===gid);if(!g)return;g.items=g.items.filter(i=>i.id!==iid);render();}
 function addRef(gid,iid){const g=groups.find(g=>g.id===gid);const it=g&&g.items.find(i=>i.id===iid);if(!it)return;it.refs.push({id:++rC,sumber:'',harga:0});render();}
 function delRef(gid,iid,rid){const g=groups.find(g=>g.id===gid);const it=g&&g.items.find(i=>i.id===iid);if(!it)return;it.refs=it.refs.filter(r=>r.id!==rid);render();}
